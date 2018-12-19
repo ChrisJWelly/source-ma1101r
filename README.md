@@ -1,2 +1,22 @@
 # source-ma1101r
 Attempting to program MA1101R Linear Algebra, using CS1101S' Source (AY18/19 Sem1)
+
+Pairs and lists instead of arrays are used to represent matrices in these codes
+
+Here, a n x 1 matrix (a matrix with n rows and 1 column) is represented by a list of n lists. Each of the list containing 1 element:
+i.e. 
+list(list(1), // index 0
+     list(2), // index 1
+     list(3),
+     ...
+     list(n)) // index n - 1
+     
+A 1 x n matrix (a matrix with 1 row and n columns) is represented by a list of a single list, which contains n elements. 
+i.e.
+list(list(1, 2, 3, ..., n))
+
+Thus an m x n matrix can be represented with:
+list(list(1, 2, ..., n), //index 0, row 1
+     list(1, 2, ..., n), // index 1, row 2
+     ...
+     list(1, 2, ..., n)) // index m, row m - 1
