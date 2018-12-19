@@ -1,6 +1,34 @@
 // most of the following helper functions can be found in Source Chapter 2 or 4 documentation
 // these helper functions will be used throughout the project
 
+
+// self-made helper functions:
+/* slot_in is a function that takes 3 arguments, and slots in
+an element into a specified index of the list
+The input assumes index < length(list)
+*/
+
+function slot_in(element, lst, index) {
+    if (index === 0) {
+        return pair(element, lst);
+    } else {
+        return pair(head(lst), slot_in(element, tail(lst), index - 1));
+    }
+} 
+
+// slot_in(2, list(0,1,3,4), 2) should return list(0,1,2,3,4)
+
+// slot_out removes an element from the index i of the list, thus returning
+// a list of size n - 1 if the original input list has a size of n
+
+function slot_out(lst, index) {
+    if (index === 0) {
+        return tail(lst);
+    } else {
+        return pair(head(lst), slot_out(tail(lst), index - 1));
+    }
+}
+
 // a helper function from one of the reflection sessions
 
 /* The function accumulate_n is similar to accumulate except that it takes as its third argument
