@@ -1,9 +1,8 @@
 # source-ma1101r
-# this looks terrible in the actual README sorry about that im a noob
-Attempting to program MA1101R Linear Algebra, using CS1101S' Source (AY18/19 Sem1)
-
+Attempting to program MA1101R Linear Algebra I, using CS1101S' Source (AY18/19 Sem1)
 Pairs and lists instead of arrays are used to represent matrices in these codes
 
+this looks terrible in the actual README sorry about that:
 Here, a n x 1 matrix (a matrix with n rows and 1 column) is represented by a list of n lists. Each of the list containing 1 element:
 i.e. 
 list(list(1), // index 0
