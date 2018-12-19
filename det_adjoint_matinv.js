@@ -23,6 +23,14 @@ function minormatrix(i, j, mat) {
 function scalar_mult(scalar, mat) {
     return map(x => map(y => scalar * y, x), mat);
 }
+
+function slot_out(lst, index) {
+    if (index === 0) {
+        return tail(lst);
+    } else {
+        return pair(head(lst), slot_out(tail(lst), index - 1));
+    }
+}
 // ----- end of helper functions ----
 
 // returns the (i, j)-cofactor of a matrix mat
