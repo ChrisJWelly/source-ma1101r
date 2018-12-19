@@ -5,6 +5,11 @@ function matrix_builder(r, c, fun) {
     return build_list(r, i => build_list(c, j => fun(i, j)));
 }
 
+// returns a pair where the head is the number of rows the matrix has and the tail is the number 
+// of columns the matrix has
+function matrix_size(mat) {
+    return pair(length(mat), length(head(mat)));
+}
 // returns true if the input matrix is a 1 x 1 matrix and false otherwise
 function is_1x1_matrix(mat) {
     return is_empty_list(tail(head(mat))) && is_empty_list(tail(mat));
