@@ -1,3 +1,4 @@
+// ----- start of helper functions
 function matrix_builder(r, c, fun) {
     return build_list(r, i => build_list(c, j => fun(i, j)));
 }
