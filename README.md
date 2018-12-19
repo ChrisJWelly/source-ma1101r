@@ -1,4 +1,5 @@
 # source-ma1101r
+# this looks terrible in the actual README sorry about that im a noob
 Attempting to program MA1101R Linear Algebra, using CS1101S' Source (AY18/19 Sem1)
 
 Pairs and lists instead of arrays are used to represent matrices in these codes
