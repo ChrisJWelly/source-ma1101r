@@ -1,9 +1,9 @@
 // ----- start of helper functions
-function matrix_builder(r, c, fun) {
+function mat_builder(r, c, fun) {
     return build_list(r, i => build_list(c, j => fun(i, j)));
 }
 
-function matrix_size(mat) {
+function mat_size(mat) {
     if (is_empty_list(mat)) {
         return pair(0,0);
     } else {
@@ -11,22 +11,13 @@ function matrix_size(mat) {
     }
 }
 
-function is_1x1_matrix(mat) {
-    const size = matrix_size(mat);
+function is_1x1_mat(mat) {
+    const size = mat_size(mat);
     return head(size) === 1 && tail(size) === 1;
 }
 
 function ij_elem(i, j, mat) {
     return list_ref(list_ref(mat, i), j);
-}
-
-function minormatrix(i, j, mat) {
-    return map(x => slot_out(x, j),
-                slot_out(mat, i));
-}
-
-function scalar_mult(scalar, mat) {
-    return map(x => map(y => scalar * y, x), mat);
 }
 
 function slot_out(lst, index) {
@@ -36,12 +27,21 @@ function slot_out(lst, index) {
         return pair(head(lst), slot_out(tail(lst), index - 1));
     }
 }
+
+function minor_mat(i, j, mat) {
+    return map(x => slot_out(x, j),
+                slot_out(mat, i));
+}
+
+function scalar_mult(scalar, mat) {
+    return map(x => map(y => scalar * y, x), mat);
+}
 // ----- end of helper functions ----
 
 // returns the (i, j)-cofactor of a matrix mat
 function ij_cofactor(i, j, mat) {
     const is_even_sum = ((i + j) % 2 === 0); // returns boolean
-    return (is_even_sum ? 1 : -1) * det(minormatrix(i, j, mat));
+    return (is_even_sum ? 1 : -1) * det(minor_mat(i, j, mat));
 }
 
 // returns the cofactor expansion along row index 0 
@@ -57,10 +57,10 @@ function cofactor_expansion(cols, mat) {
 
 // returns the determinant of the matrix calculated by cofactor expansion
 function det(mat) {
-    if (is_1x1_matrix(mat)) {
+    if (is_1x1_mat(mat)) {
         return head(head(mat));
     } else {
-        const size = head(matrix_size(mat));
+        const size = head(mat_size(mat));
         // display(size);
         return cofactor_expansion(size - 1, mat);
     }
@@ -68,11 +68,11 @@ function det(mat) {
 
 // returns the classical_adjoint of matrix mat
 function classical_adjoint(mat) {
-    if (is_1x1_matrix(mat)) {
+    if (is_1x1_mat(mat)) {
         return list(list(1));
     } else {
-        const size = head(matrix_size(mat));
-        return matrix_builder(size, size, (x, y) => ij_cofactor(y, x, mat));
+        const size = head(mat_size(mat));
+        return mat_builder(size, size, (x, y) => ij_cofactor(y, x, mat));
     }
 }
 // old notes:
@@ -82,12 +82,12 @@ function classical_adjoint(mat) {
 
 // new notes:
 // returns the inverse of a matrix by computing the determinant and adjoint
-function matrix_inv(mat) {
+function mat_inv(mat) {
     const mat_det = det(mat);
-    display(mat_det);
+    // display(mat_det);
     if (mat_det === 0) {
         return undefined;
-    } else if (is_1x1_matrix(mat)) { // perhaps adding this will do 
+    } else if (is_1x1_mat(mat)) { // perhaps adding this will do 
         // actually, this is no longer necessary. Just add classical_adjoint's
         // definition to involve 1x1 matrix
         const the_elem = head(head(mat));

@@ -1,5 +1,5 @@
 // ----- start of helper functions -----
-function matrix_size(mat) {
+function mat_size(mat) {
     if (is_empty_list(mat)) {
         return pair(0,0);
     } else {
@@ -19,7 +19,7 @@ function accumulate_n(op, init, seqs) {
 // perhaps check matrix size first and return undefined if diff matrix size
 
 // returns the result of adding 2 matrices
-function add_matrix(mat1, mat2) {
+function add_mat(mat1, mat2) {
     if (is_empty_list(mat1) && is_empty_list(mat2)) {
         return [];
     } else {
@@ -27,12 +27,12 @@ function add_matrix(mat1, mat2) {
         const curr_row2 = head(mat2);
         const added_rows = accumulate_n((x, y) => x + y, 0, list(curr_row1, curr_row2));
         return pair(added_rows,
-                    add_matrix(tail(mat1), tail(mat2)));
+                    add_mat(tail(mat1), tail(mat2)));
     }
 }
 
 // returns the result of subtracting a matrix from another
-function subtract_matrix(mat1, mat2) {
+function subtract_mat(mat1, mat2) {
     if (is_empty_list(mat1) && is_empty_list(mat2)) {
         return [];
     } else {
@@ -40,7 +40,7 @@ function subtract_matrix(mat1, mat2) {
         const curr_row2 = head(mat2);
         const subtracted_rows = accumulate_n((x, y) => x - y, 0, list(curr_row1, curr_row2));
         return pair(subtracted_rows,
-                    subtract_matrix(tail(mat1), tail(mat2)));
+                    subtract_mat(tail(mat1), tail(mat2)));
     }
 }
 
