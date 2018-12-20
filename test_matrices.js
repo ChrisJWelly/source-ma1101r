@@ -64,3 +64,17 @@ const m1_3x2 = list(list(2,3),
 const m2_3x2 = list(list(1,8),
                     list(0,1),
                     list(9,9));
+
+// 3x1 matrices
+const m1_3x1 = list(list(1),
+                    list(2),
+                    list(3));
+
+const m2_3x1 = list(list(1),
+                    list(8),
+                    list(9));
+
+// 1x3 matrices
+const m1_1x3 = list(list(2,3,4));
+
+const m2_1x3 = list(list(1,5,0));
