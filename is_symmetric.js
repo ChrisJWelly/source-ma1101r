@@ -17,8 +17,21 @@ function transpose(mat) {
         return accumulate_n(pair, [], mat);
     }
 }
+
+function mat_size(mat) {
+    if (is_empty_list(mat)) {
+        return pair(0,0);
+    } else {
+        return pair(length(mat), length(head(mat)));
+    }
+}
+
+function is_square(mat) {
+    const size = mat_size(mat);
+    return head(size) === tail(size);
+}
 // ---- end of helper functions ----
 
 function is_symmetric(mat) {
-    return equal(mat, transpose(mat));
+    return is_square(mat) && equal(mat, transpose(mat));
 }
