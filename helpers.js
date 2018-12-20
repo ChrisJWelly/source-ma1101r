@@ -24,6 +24,17 @@ function slot_out(lst, index) {
         return pair(head(lst), slot_out(tail(lst), index - 1));
     }
 }
+
+// list_op performs a binary operation op on the nth element of lst1 with
+// the nth element of lst2, and returns the resulting list
+function list_op(op, lst1, lst2) {
+    if (is_empty_list(lst1) && is_empty_list(lst2)) {
+        return [];
+    } else {
+        return pair(op(head(lst1), head(lst2)),
+                    list_op(op, tail(lst1), tail(lst2)));
+    }
+}
 // ----- end of self-made helper functions ----
 
 // ---- a helper function from one of the reflection sessions ----
@@ -45,9 +56,9 @@ function accumulate_n(op, init, seqs) {
                   accumulate_n(op, init, map(tail, seqs)));
 }
 
-// ----- end of helpers from reflection sessions
+// ----- end of helpers from reflection sessions -----
 
-// copied from Source Documentation
+// ----- copied from Source Documentation -----
 /* these functions are pre-defined in the Source environment and codes in this project
 will not have these functions defined in the beginning of the document. The definitions
 in this document is for reference purposes only*/
@@ -230,4 +241,4 @@ function accumulate(f, initial, xs) {
            : f(head(xs),
               accumulate(f, initial, tail(xs)));
 }
-// ----- end of pre-defined functions
+// ----- end of pre-defined functions -----
