@@ -33,6 +33,14 @@ const m3_3x3 = list(list(3,5,6),
                     list(2,7,8),
                     list(0,1,3));
 
+const m4_3x3 = list(list(2,4,5),
+                    list(0,3,1),
+                    list(0,0,0));
+
+const m5_3x3 = list(list(2,0,0),
+                    list(1,8,0),
+                    list(3,4,5));
+                    
 const zero_3x3 = list(list(0,0,0),
                       list(0,0,0),
                       list(0,0,0));
