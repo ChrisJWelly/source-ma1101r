@@ -1,7 +1,7 @@
 /* an abstraction to build a matrix that has r rows and c columns. 
 The (i,j)-entry of the matrix depends on fun, which is binary function which takes as arguments
 i and j */
-function mat_builder(r, c, fun) {
+function build_mat(r, c, fun) {
     return build_list(r, i => build_list(c, j => fun(i, j)));
 }
 

@@ -1,5 +1,5 @@
 // ----- start of helper functions
-function mat_builder(r, c, fun) {
+function build_mat(r, c, fun) {
     return build_list(r, i => build_list(c, j => fun(i, j)));
 }
 
@@ -72,7 +72,7 @@ function classical_adjoint(mat) {
         return list(list(1));
     } else {
         const size = head(mat_size(mat));
-        return mat_builder(size, size, (x, y) => ij_cofactor(y, x, mat));
+        return build_mat(size, size, (x, y) => ij_cofactor(y, x, mat));
     }
 }
 // old notes:
