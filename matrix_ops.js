@@ -1,6 +1,10 @@
 // ----- start of helper functions -----
 function matrix_size(mat) {
-    return pair(length(mat), length(head(mat)));
+    if (is_empty_list(mat)) {
+        return pair(0,0);
+    } else {
+        return pair(length(mat), length(head(mat)));
+    }
 }
 
 function accumulate_n(op, init, seqs) {
@@ -10,6 +14,9 @@ function accumulate_n(op, init, seqs) {
                   accumulate_n(op, init, map(tail, seqs)));
 }
 // ----- end of helper functions -----
+
+// note to future self: make use of list_op instead of accumulate_n
+// perhaps check matrix size first and return undefined if diff matrix size
 
 // returns the result of adding 2 matrices
 function add_matrix(mat1, mat2) {

@@ -53,6 +53,6 @@ const m1_3x2 = list(list(2,3),
                     list(1,5),
                     list(8,6));
 
-const m2_3x2 = list(list(1,8)
-                    list(0,1)
+const m2_3x2 = list(list(1,8),
+                    list(0,1),
                     list(9,9));

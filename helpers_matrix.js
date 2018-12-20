@@ -8,11 +8,16 @@ function matrix_builder(r, c, fun) {
 // returns a pair where the head is the number of rows the matrix has and the tail is the number 
 // of columns the matrix has
 function matrix_size(mat) {
-    return pair(length(mat), length(head(mat)));
+    if (is_empty_list(mat)) {
+        return pair(0,0);
+    } else {
+        return pair(length(mat), length(head(mat)));
+    }
 }
 // returns true if the input matrix is a 1 x 1 matrix and false otherwise
 function is_1x1_matrix(mat) {
-    return is_empty_list(tail(head(mat))) && is_empty_list(tail(mat));
+    const size = matrix_size(mat);
+    return head(size) === 1 && tail(size) === 1;
 }
 
 // returns the (i, j)-entry of the of matrix mat, where i and j are indices

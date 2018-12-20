@@ -4,11 +4,16 @@ function matrix_builder(r, c, fun) {
 }
 
 function matrix_size(mat) {
-    return pair(length(mat), length(head(mat)));
+    if (is_empty_list(mat)) {
+        return pair(0,0);
+    } else {
+        return pair(length(mat), length(head(mat)));
+    }
 }
 
 function is_1x1_matrix(mat) {
-    return is_empty_list(tail(head(mat))) && is_empty_list(tail(mat));
+    const size = matrix_size(mat);
+    return head(size) === 1 && tail(size) === 1;
 }
 
 function ij_elem(i, j, mat) {
