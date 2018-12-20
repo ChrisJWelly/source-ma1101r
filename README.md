@@ -1,13 +1,14 @@
 # source-ma1101r
-Attempting to program MA1101R Linear Algebra I, using CS1101S' Source (AY18/19 Sem1)
-
+Attempting to program MA1101R Linear Algebra I, using CS1101S' Source (AY18/19 Sem1 edition)
+Programs are based on the MA1101R textbook Linear Algebra: Concepts on Euclidean Spaces (2nd Edition) by Ma, Tan and Ng, as well as concepts introduced in tutorials/homeworks/exams of AY18/19 Sem 1
 
 Goals:
 1. Basic Matrix functions:
-   - [ ] matrix_equality
-   - [ ] transpose
-   - [ ] is_triangular
-   - [ ] is_symmetric
+   - [x] Matrix Equality
+   - [x] transpose
+   - [x] is_triangular
+   - [x] is_diagonal
+   - [x] is_symmetric
 2. Matrix Operations:
    - [x] Matrix Addition
    - [x] Matrix Subtraction
@@ -23,5 +24,8 @@ Goals:
    - [ ] is_orthogonal (for two vectors)
    - [ ] is_orthogonal_set (for a list of vectors)
    - [ ] Gram-Schmidt Process (transforms a list of vectors to a list where is_orthogonal_set returns true) *current ultimate goal!*
+5. Miscellaneous:
+   - [ ] Trace of a matrix
+   - [ ] is_stochastic matrix
 
 
