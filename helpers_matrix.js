@@ -20,6 +20,11 @@ function is_1x1_mat(mat) {
     return head(size) === 1 && tail(size) === 1;
 }
 
+// returns true if the input matrix is an empty matrix and false otherwise
+function is_empty_mat(mat) {
+    return is_empty_list(mat);
+}
+
 // returns the (i, j)-entry of the of matrix mat, where i and j are indices
 function ij_elem(i, j, mat) {
     return list_ref(list_ref(mat, i), j);
