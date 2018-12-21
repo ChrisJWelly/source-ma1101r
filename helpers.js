@@ -35,6 +35,11 @@ function list_op(op, lst1, lst2) {
                     list_op(op, tail(lst1), tail(lst2)));
     }
 }
+
+// displays every element in the list. Useful for a set of vectors
+function display_all(xs) {
+    for_each(display, xs);
+}
 // ----- end of self-made helper functions ----
 
 // ---- a helper function from one of the reflection sessions ----

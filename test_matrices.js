@@ -96,3 +96,37 @@ const m3_1x3 = list(list(1,0,0));
 const m4_1x3 = list(list(0,1,0));
 
 const m5_1x3 = list(list(0,0,1));
+
+const m6_1x3 = list(list(1,-1,2));
+
+const m7_1x3 = list(list(2,1,0));
+
+// 1x4 matrices
+const m1_1x4 = list(list(1,1,0,0));
+
+const m2_1x4 = list(list(0,2,1,1));
+
+const m3_1x4 = list(list(1,1,3,1));
+
+// 4x1 matrices
+const m1_4x1 = list(list(1),
+                    list(1),
+                    list(0),
+                    list(0));
+
+const m2_4x1 = list(list(0),
+                    list(2),
+                    list(1),
+                    list(1));
+
+const m3_4x1 = list(list(1),
+                    list(1),
+                    list(3),
+                    list(1));
+
+// Bases
+const b1 = list(m6_1x3, m7_1x3, m5_1x3);
+
+const b2 = list(m1_1x4, m2_1x4, m3_1x4);
+
+const b3 = list(m1_4x1, m2_4x1, m3_4x1);
