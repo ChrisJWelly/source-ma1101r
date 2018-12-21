@@ -1,4 +1,4 @@
-// ---- start of helper functions ----
+// ---- start of helpers ----
 function list_op(op, lst1, lst2) {
     if (is_empty_list(lst1) && is_empty_list(lst2)) {
         return [];
@@ -7,6 +7,7 @@ function list_op(op, lst1, lst2) {
                     list_op(op, tail(lst1), tail(lst2)));
     }
 }
+
 function mat_size(mat) {
     if (is_empty_list(mat)) {
         return pair(0,0);
@@ -15,21 +16,6 @@ function mat_size(mat) {
     }
 }
 
-function mat_subtract(mat1, mat2) {
-    if (!equal(mat_size(mat1), mat_size(mat2))) {
-        display("mat_subtract: Matrices are not of the same size");
-        return undefined;
-    } else if (is_empty_list(mat1) && is_empty_list(mat2)) {
-        return [];
-    } else {
-        const curr_row1 = head(mat1);
-        const curr_row2 = head(mat2);
-        const subtracted_rows = list_op((x, y) => x - y, curr_row1, curr_row2);
-        return pair(subtracted_rows,
-                    mat_subtract(tail(mat1), tail(mat2)));
-    }
-}
-// ---- end of helper functions ----
 function dot_prod(vect1, vect2) {
     function dot_prod_row(row_vect1, row_vect2) {
         const row1 = head(row_vect1);
@@ -48,17 +34,20 @@ function dot_prod(vect1, vect2) {
            ? dot_prod_row(vect1, vect2)
            : dot_prod_col(vect1, vect2);
 }
+// ---- end of helpers ----
 
-function norm(vect) {
-    return math_sqrt(dot_prod(vect, vect));
+function is_orthogonal(vect1, vect2) {
+    return dot_prod(vect1, vect2) === 0;
 }
 
-function angle(vect1, vect2) {
-    const numerator = dot_prod(vect1, vect2);
-    const denominator = norm(vect1) * norm(vect2);
-    return math_acos(numerator / denominator);
-}
-
-function distance(vect1, vect2) {
-    return norm(mat_subtract(vect1, vect2));
+function is_orthogonal_set(lst_of_vect) {
+    if (length(lst_of_vect) === 1) {
+        return true;
+    } else {
+        const first_vect = head(lst_of_vect);
+        const rest_vect = tail(lst_of_vect);
+        const check_with_rest = map(x => is_orthogonal(first_vect, x), rest_vect);
+        const first_orth_with_rest = accumulate((x, y) => x && y, true, check_with_rest);
+        return first_orth_with_rest && is_orthogonal_set(rest_vect);
+    }
 }
