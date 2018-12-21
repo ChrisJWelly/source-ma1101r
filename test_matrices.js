@@ -74,7 +74,25 @@ const m2_3x1 = list(list(1),
                     list(8),
                     list(9));
 
+const m3_3x1 = list(list(1),
+                    list(-1),
+                    list(0));
+
+const m4_3x1 = list(list(1),
+                    list(1),
+                    list(0));
+
+const m5_3x1 = list(list(0),
+                    list(0),
+                    list(1));
+                    
 // 1x3 matrices
 const m1_1x3 = list(list(2,3,4));
 
 const m2_1x3 = list(list(1,5,0));
+
+const m3_1x3 = list(list(1,0,0));
+
+const m4_1x3 = list(list(0,1,0));
+
+const m5_1x3 = list(list(0,0,1));

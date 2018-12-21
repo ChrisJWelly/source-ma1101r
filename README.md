@@ -23,9 +23,11 @@ Goals:
    - [ ] GJE up to Reduced Row-Echelon Form (*important to work towards!*)
    - [ ] Using RREF to return solution to a system (maybe in the form of a list?)
 4. Functions related to orthogonality:
-   - [ ] Dot product (should work if both are rows or both are columns)
-   - [ ] is_orthogonal (for two vectors)
-   - [ ] is_orthogonal_set (for a list of vectors)
+   - [x] Dot product (should work if both are rows or both are columns)
+   - [x] is_orthogonal (for two vectors)
+   - [x] is_orthogonal_set (for a list of vectors)
+   - [x] Norm
+   - [x] Angle?? ~~Need to look into inverse cosines tho~~ it's math_acos() !
    - [ ] Gram-Schmidt Process (transforms a list of vectors to a list where is_orthogonal_set returns true) (*current ultimate goal!*)
 5. Miscellaneous:
    - [ ] Trace of a matrix
